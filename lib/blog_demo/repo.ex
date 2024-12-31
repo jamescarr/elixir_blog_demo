@@ -1,6 +1,6 @@
-defmodule MyAshPhoenixApp.Repo do
+defmodule BlogDemo.Repo do
   use AshPostgres.Repo,
-    otp_app: :my_ash_phoenix_app
+    otp_app: :blog_demo
 
   def installed_extensions do
     # Add extensions here, and the migration generator will install them.

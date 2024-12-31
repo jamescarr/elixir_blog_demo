@@ -1,9 +1,9 @@
-# lib/my_ash_phoenix_app/blog/post.ex
-defmodule MyAshPhoenixApp.Blog.Post do
+# lib/blog_demo/blog/post.ex
+defmodule BlogDemo.Blog.Post do
   # Using Ash.Resource turns this module into an Ash resource.
   use Ash.Resource,
     # Tells Ash where the generated code interface belongs
-    domain: MyAshPhoenixApp.Blog,
+    domain: BlogDemo.Blog,
     # Tells Ash you want this resource to store its data in Postgres.
     data_layer: AshPostgres.DataLayer,
     extensions: [AshJsonApi.Resource]
@@ -13,7 +13,7 @@ defmodule MyAshPhoenixApp.Blog.Post do
     # Tells Postgres what to call the table
     table "posts"
     # Tells Ash how to interface with the Postgres table
-    repo MyAshPhoenixApp.Repo
+    repo BlogDemo.Repo
   end
 
   json_api do
@@ -33,7 +33,7 @@ defmodule MyAshPhoenixApp.Blog.Post do
         default_limit 25
         required? true
         offset? true
-        countable true
+        countable :by_default
       end
     end
     create :create do

@@ -1,12 +1,12 @@
-defmodule MyAshPhoenixAppWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :my_ash_phoenix_app
+defmodule BlogDemoWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :blog_demo
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_my_ash_phoenix_app_key",
+    key: "_blog_demo_key",
     signing_salt: "X/c5UWRc",
     same_site: "Lax"
   ]
@@ -21,9 +21,9 @@ defmodule MyAshPhoenixAppWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :my_ash_phoenix_app,
+    from: :blog_demo,
     gzip: false,
-    only: MyAshPhoenixAppWeb.static_paths()
+    only: BlogDemoWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -31,7 +31,7 @@ defmodule MyAshPhoenixAppWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :my_ash_phoenix_app
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :blog_demo
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -49,5 +49,5 @@ defmodule MyAshPhoenixAppWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug MyAshPhoenixAppWeb.Router
+  plug BlogDemoWeb.Router
 end

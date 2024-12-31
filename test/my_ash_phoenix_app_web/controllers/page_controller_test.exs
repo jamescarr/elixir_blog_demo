@@ -1,5 +1,5 @@
-defmodule MyAshPhoenixAppWeb.PageControllerTest do
-  use MyAshPhoenixAppWeb.ConnCase
+defmodule BlogDemoWeb.PageControllerTest do
+  use BlogDemoWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")

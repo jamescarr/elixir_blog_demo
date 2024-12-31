@@ -1,5 +1,5 @@
-defmodule MyAshPhoenixAppWeb.PostLive.FormComponent do
-  use MyAshPhoenixAppWeb, :live_component
+defmodule BlogDemoWeb.PostLive.FormComponent do
+  use BlogDemoWeb, :live_component
 
   @impl true
   def render(assigns) do
@@ -18,7 +18,11 @@ defmodule MyAshPhoenixAppWeb.PostLive.FormComponent do
         phx-submit="save"
       >
         <%= if @form.source.type == :create do %>
-          <.input field={@form[:title]} type="text" label="Title" />
+          <.input field={@form[:title]} type="text" label="Title" /><.input
+            field={@form[:content]}
+            type="text"
+            label="Content"
+          />
         <% end %>
         <%= if @form.source.type == :update do %>
           <.input field={@form[:content]} type="text" label="Content" />
@@ -67,12 +71,9 @@ defmodule MyAshPhoenixAppWeb.PostLive.FormComponent do
   defp assign_form(%{assigns: %{post: post}} = socket) do
     form =
       if post do
-        AshPhoenix.Form.for_update(post, :update, as: "post", actor: socket.assigns.current_user)
+        AshPhoenix.Form.for_update(post, :update, as: "post")
       else
-        AshPhoenix.Form.for_create(MyAshPhoenixApp.Blog.Post, :create,
-          as: "post",
-          actor: socket.assigns.current_user
-        )
+        AshPhoenix.Form.for_create(BlogDemo.Blog.Post, :create, as: "post")
       end
 
     assign(socket, form: to_form(form))

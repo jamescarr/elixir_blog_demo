@@ -1,4 +1,4 @@
-defmodule MyAshPhoenixAppWeb.Gettext do
+defmodule BlogDemoWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
@@ -6,7 +6,7 @@ defmodule MyAshPhoenixAppWeb.Gettext do
   that you can use in your application. To use this Gettext backend module,
   call `use Gettext` and pass it as an option:
 
-      use Gettext, backend: MyAshPhoenixAppWeb.Gettext
+      use Gettext, backend: BlogDemoWeb.Gettext
 
       # Simple translation
       gettext("Here is the string to translate")
@@ -21,5 +21,5 @@ defmodule MyAshPhoenixAppWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext.Backend, otp_app: :my_ash_phoenix_app
+  use Gettext.Backend, otp_app: :blog_demo
 end

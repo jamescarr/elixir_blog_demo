@@ -1,4 +1,4 @@
-defmodule MyAshPhoenixApp.Application do
+defmodule BlogDemo.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -8,22 +8,22 @@ defmodule MyAshPhoenixApp.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      MyAshPhoenixAppWeb.Telemetry,
-      MyAshPhoenixApp.Repo,
+      BlogDemoWeb.Telemetry,
+      BlogDemo.Repo,
       {DNSCluster,
-       query: Application.get_env(:my_ash_phoenix_app, :dns_cluster_query) || :ignore},
-      {Phoenix.PubSub, name: MyAshPhoenixApp.PubSub},
+       query: Application.get_env(:blog_demo, :dns_cluster_query) || :ignore},
+      {Phoenix.PubSub, name: BlogDemo.PubSub},
       # Start the Finch HTTP client for sending emails
-      {Finch, name: MyAshPhoenixApp.Finch},
-      # Start a worker by calling: MyAshPhoenixApp.Worker.start_link(arg)
-      # {MyAshPhoenixApp.Worker, arg},
+      {Finch, name: BlogDemo.Finch},
+      # Start a worker by calling: BlogDemo.Worker.start_link(arg)
+      # {BlogDemo.Worker, arg},
       # Start to serve requests, typically the last entry
-      MyAshPhoenixAppWeb.Endpoint
+      BlogDemoWeb.Endpoint
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: MyAshPhoenixApp.Supervisor]
+    opts = [strategy: :one_for_one, name: BlogDemo.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -31,7 +31,7 @@ defmodule MyAshPhoenixApp.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    MyAshPhoenixAppWeb.Endpoint.config_change(changed, removed)
+    BlogDemoWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

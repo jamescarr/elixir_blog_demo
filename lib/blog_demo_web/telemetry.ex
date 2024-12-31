@@ -1,4 +1,4 @@
-defmodule MyAshPhoenixAppWeb.Telemetry do
+defmodule BlogDemoWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -52,23 +52,23 @@ defmodule MyAshPhoenixAppWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("my_ash_phoenix_app.repo.query.total_time",
+      summary("blog_demo.repo.query.total_time",
         unit: {:native, :millisecond},
         description: "The sum of the other measurements"
       ),
-      summary("my_ash_phoenix_app.repo.query.decode_time",
+      summary("blog_demo.repo.query.decode_time",
         unit: {:native, :millisecond},
         description: "The time spent decoding the data received from the database"
       ),
-      summary("my_ash_phoenix_app.repo.query.query_time",
+      summary("blog_demo.repo.query.query_time",
         unit: {:native, :millisecond},
         description: "The time spent executing the query"
       ),
-      summary("my_ash_phoenix_app.repo.query.queue_time",
+      summary("blog_demo.repo.query.queue_time",
         unit: {:native, :millisecond},
         description: "The time spent waiting for a database connection"
       ),
-      summary("my_ash_phoenix_app.repo.query.idle_time",
+      summary("blog_demo.repo.query.idle_time",
         unit: {:native, :millisecond},
         description:
           "The time the connection spent waiting before being checked out for the query"
@@ -86,7 +86,7 @@ defmodule MyAshPhoenixAppWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {MyAshPhoenixAppWeb, :count_users, []}
+      # {BlogDemoWeb, :count_users, []}
     ]
   end
 end

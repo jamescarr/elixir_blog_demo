@@ -1,5 +1,5 @@
-defmodule MyAshPhoenixAppWeb.PostLive.Show do
-  use MyAshPhoenixAppWeb, :live_view
+defmodule BlogDemoWeb.PostLive.Show do
+  use BlogDemoWeb, :live_view
 
   @impl true
   def render(assigns) do
@@ -23,11 +23,10 @@ defmodule MyAshPhoenixAppWeb.PostLive.Show do
 
     <.modal :if={@live_action == :edit} id="post-modal" show on_cancel={JS.patch(~p"/posts/#{@post}")}>
       <.live_component
-        module={MyAshPhoenixAppWeb.PostLive.FormComponent}
+        module={BlogDemoWeb.PostLive.FormComponent}
         id={@post.id}
         title={@page_title}
         action={@live_action}
-        current_user={@current_user}
         post={@post}
         patch={~p"/posts/#{@post}"}
       />
@@ -45,7 +44,7 @@ defmodule MyAshPhoenixAppWeb.PostLive.Show do
     {:noreply,
      socket
      |> assign(:page_title, page_title(socket.assigns.live_action))
-     |> assign(:post, Ash.get!(MyAshPhoenixApp.Blog.Post, id, actor: socket.assigns.current_user))}
+     |> assign(:post, Ash.get!(BlogDemo.Blog.Post, id))}
   end
 
   defp page_title(:show), do: "Show Post"

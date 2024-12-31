@@ -1,4 +1,4 @@
-defmodule MyAshPhoenixApp.Repo.Migrations.InitialMigration do
+defmodule BlogDemo.Repo.Migrations.InitialMigration do
   @moduledoc """
   Updates resources based on their most recent snapshots.
 

@@ -1,9 +1,9 @@
-defmodule MyAshPhoenixApp.MixProject do
+defmodule BlogDemo.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :my_ash_phoenix_app,
+      app: :blog_demo,
       version: "0.1.0",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule MyAshPhoenixApp.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {MyAshPhoenixApp.Application, []},
+      mod: {BlogDemo.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -81,10 +81,10 @@ defmodule MyAshPhoenixApp.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ash.setup --quiet", "test"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind my_ash_phoenix_app", "esbuild my_ash_phoenix_app"],
+      "assets.build": ["tailwind blog_demo", "esbuild blog_demo"],
       "assets.deploy": [
-        "tailwind my_ash_phoenix_app --minify",
-        "esbuild my_ash_phoenix_app --minify",
+        "tailwind blog_demo --minify",
+        "esbuild blog_demo --minify",
         "phx.digest"
       ]
     ]

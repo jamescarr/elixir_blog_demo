@@ -1,12 +1,12 @@
-defmodule MyAshPhoenixAppWeb do
+defmodule BlogDemoWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use MyAshPhoenixAppWeb, :controller
-      use MyAshPhoenixAppWeb, :html
+      use BlogDemoWeb, :controller
+      use BlogDemoWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,9 +40,9 @@ defmodule MyAshPhoenixAppWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: MyAshPhoenixAppWeb.Layouts]
+        layouts: [html: BlogDemoWeb.Layouts]
 
-      use Gettext, backend: MyAshPhoenixAppWeb.Gettext
+      use Gettext, backend: BlogDemoWeb.Gettext
 
       import Plug.Conn
 
@@ -53,7 +53,7 @@ defmodule MyAshPhoenixAppWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {MyAshPhoenixAppWeb.Layouts, :app}
+        layout: {BlogDemoWeb.Layouts, :app}
 
       unquote(html_helpers())
     end
@@ -83,12 +83,12 @@ defmodule MyAshPhoenixAppWeb do
   defp html_helpers do
     quote do
       # Translation
-      use Gettext, backend: MyAshPhoenixAppWeb.Gettext
+      use Gettext, backend: BlogDemoWeb.Gettext
 
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components
-      import MyAshPhoenixAppWeb.CoreComponents
+      import BlogDemoWeb.CoreComponents
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
@@ -101,9 +101,9 @@ defmodule MyAshPhoenixAppWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: MyAshPhoenixAppWeb.Endpoint,
-        router: MyAshPhoenixAppWeb.Router,
-        statics: MyAshPhoenixAppWeb.static_paths()
+        endpoint: BlogDemoWeb.Endpoint,
+        router: BlogDemoWeb.Router,
+        statics: BlogDemoWeb.static_paths()
     end
   end
 

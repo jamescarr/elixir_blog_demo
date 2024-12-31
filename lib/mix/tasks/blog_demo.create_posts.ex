@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.CreatePosts do
+defmodule Mix.Tasks.BlogDemo.CreatePosts do
   use Mix.Task
 
   @shortdoc "Creates a specified number of Post records."
@@ -6,7 +6,7 @@ defmodule Mix.Tasks.CreatePosts do
   @moduledoc """
   This task will create a given number of Post records.
 
-      mix create_posts 10
+      mix blog_demo.create_posts 10
   """
 
   def run(args) do
@@ -26,7 +26,7 @@ defmodule Mix.Tasks.CreatePosts do
         content: "Seeded Content for Post ##{i}",
       }
 
-      MyAshPhoenixApp.Blog.create_post!(params)
+      BlogDemo.Blog.create_post!(params)
       IO.puts("Created Post ##{i}")
 
     end

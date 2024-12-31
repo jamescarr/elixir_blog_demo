@@ -43,7 +43,7 @@
     "global": null,
     "strategy": null
   },
-  "repo": "Elixir.MyAshPhoenixApp.Repo",
+  "repo": "Elixir.BlogDemo.Repo",
   "schema": null,
   "table": "posts"
 }

@@ -1,6 +1,6 @@
-defmodule MyAshPhoenixApp do
+defmodule BlogDemo do
   @moduledoc """
-  MyAshPhoenixApp keeps the contexts that define your domain
+  BlogDemo keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless
